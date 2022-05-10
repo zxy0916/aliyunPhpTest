@@ -91,4 +91,43 @@ abstract class BaseController
         return $v->failException(true)->check($data);
     }
 
+
+
+    /**
+     * 返回操作失败json
+     * @param string $msg
+     * @param array $data
+     */
+    public function error($code=0, $msg = 'error', $data = [])
+    {
+        return  $this->renderJson($code, $msg,  $data,0);
+    }
+    /**
+     * 返回操作成功json
+     * @param string $msg
+     * @param array $data
+     */
+    public function success($msg = 'success',  $data = [],$count=0)
+    {
+        return  $this->renderJson(200, $msg,  $data,$count);
+    }
+    /**
+     * 返回封装后的 API 数据到客户端
+     * @param int $code
+     * @param string $msg
+     * @param string $nums
+     * @param string $page
+     * @param array $data
+     */
+    public function renderJson($code = 0, $msg = '', $data = [] ,$count = 0)
+    {
+        $jsonArr = array(
+            'code' => $code,
+            'msg' => $msg,
+            'data' => $data,
+            'count'=> $count
+        );
+        return json($jsonArr,JSON_UNESCAPED_UNICODE);
+    }
+
 }
