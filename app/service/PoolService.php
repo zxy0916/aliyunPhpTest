@@ -9,7 +9,7 @@ use think\facade\Db;
 class PoolService extends Service
 {
     //查看
-    public function getPoolList($param){
+    public function getPoolList(){
         $arr = [];
         return $arr;
     }

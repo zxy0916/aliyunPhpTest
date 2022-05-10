@@ -4,7 +4,7 @@ namespace app\controller;
 use app\BaseController;
 use app\service\PoolService;
 
-class Index extends BaseController
+class Pool extends BaseController
 {
     public function list()
     {
